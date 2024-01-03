@@ -4,7 +4,7 @@
   "description": "-",
   "main": "index.js",
   "scripts": {
-    "build:prod": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js",
     "build:dev": "webpack serve --config webpack.dev.js",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write ."
