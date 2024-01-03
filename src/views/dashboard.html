@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title><%= htmlWebpackPlugin.options.title %> | Story App</title>
+  </head>
+  <body class="">
+    <header>
+      <nav-app brandName="<%= brandName %>"></nav-app>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <div class="container py-3">
+          <h1 class="text-center h3">Dashboard</h1>
+          <div class="d-flex justify-content-between align-items-center">
+            <h1></h1>
+            <button-link
+              classes="text-capitalize gradient-custom-2 border-0"
+              to="/story/add.html"
+              icon="bi-plus-lg"
+              content="Tambah Story"
+            ></button-link>
+          </div>
+          <h1 class="text-center h4">Stories</h1>
+
+          <!-- Stories -->
+
+          <div class="row m-2" id="storiesRow"></div>
+
+          <!-- Card Information -->
+
+          <card-dashboard
+            id="listStory-card"
+            content="0 Story"
+            classes="m-4 border-0"
+          ></card-dashboard>
+        </div>
+      </div>
+    </main>
+
+    <modal-story
+      title="Story"
+      class="modal fade"
+      id="storyDetailModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+    ></modal-story>
+  </body>
+</html>

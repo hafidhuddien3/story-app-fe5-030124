@@ -1,0 +1,12 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+@use 'sass:map';
+
+header {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 0 60px;
+  }
+}

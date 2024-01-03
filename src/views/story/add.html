@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title><%= htmlWebpackPlugin.options.title %> | Story App</title>
+  </head>
+  <body>
+    <header>
+      <nav-app brandName="<%= brandName %>"></nav-app>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <div class="container py-3">
+          <h1 class="mb-3 text-center h3">Tambah Story</h1>
+
+          <form class="row g-3 forms" id="addRecordForm" novalidate>
+            <div class="col-12 col-md-6">
+              <label for="validationCustomPhoto" class="form-label">Upload Photo</label>
+              <input-image-with-preview
+                inputId="validationCustomPhoto"
+                invalidFeedbackMessage="Wajib diisi"
+                required
+              ></input-image-with-preview>
+            </div>
+
+            <div class="col-12 col-md-6 right">
+              <label for="validationCustomDescription" class="form-label">Deskripsi</label>
+              <textarea-with-validation
+                inputId="validationCustomDescription"
+                invalidFeedbackMessage="Wajib diisi"
+                required
+              ></textarea-with-validation>
+              <br />
+              <div class="text-end">
+                <button class="btn gradient-custom-2 border-0" type="submit">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="main-footer bg-dark">
+        <div class="container px-3 py-4">
+          <footer-app></footer-app>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

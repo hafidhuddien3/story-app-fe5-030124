@@ -1,0 +1,88 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+@use 'sass:map';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var.$fonts1;
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f6d365;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(246, 211, 101, 0.5), rgba(253, 160, 133, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(246, 211, 101, 0.5), rgba(253, 160, 133, 0.5));
+}
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #d4fc79;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(212, 252, 121, 0.5), rgba(150, 230, 161, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(212, 252, 121, 0.5), rgba(150, 230, 161, 0.5));
+}
+
+.gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #e9defa;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(233, 222, 250, 0.5), rgba(251, 252, 219, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(233, 222, 250, 0.5), rgba(251, 252, 219, 0.5));
+}
+
+.container {
+  @include mix.paddingMaxwidthMargininline;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* SM: minimum viewport width 576px or above */
+@media screen and (min-width: map.get(var.$breakpoints, 'sm')) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+/* MD: minimum viewport width 768px or above */
+@media screen and (min-width: map.get(var.$breakpoints, 'md')) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* LG: minimum viewport width 992px or above */
+@media screen and (min-width: map.get(var.$breakpoints, 'lg')) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* XL: minimum viewport width 1200px or above */
+@media screen and (min-width: map.get(var.$breakpoints, 'xl')) {
+  .container {
+    max-width: 1140px;
+  }
+}

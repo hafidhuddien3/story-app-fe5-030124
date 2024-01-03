@@ -1,0 +1,20 @@
+@use '../abstracts/variables' as var;
+@use 'sass:map';
+
+input,
+textarea {
+  width: 100%;
+  padding: 6px 8px;
+  border: 2px solid #000000aa;
+  outline: none;
+  border-radius: 4px;
+  font-family: var.$fonts1;
+  font-size: 1rem;
+  &:focus {
+    box-shadow: 0 0 0 4px #00000055;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
