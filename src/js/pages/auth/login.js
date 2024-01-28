@@ -25,11 +25,32 @@ const Login = {
       },
       false,
     );
+
+    const guestButton = document.querySelector('#guestButton');
+    guestButton.addEventListener(
+      'click',
+      async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        guestButton.classList.add('was-validated');
+        await this._getLoggedGuest();
+      },
+      false,
+    );
   },
 
   async _getLogged() {
     const formData = this._getFormData();
+    await this._getLogged2(formData,'normalLogin');
+  },
 
+  async _getLoggedGuest() {
+    const formData = this._getFormDataGuest();
+    await this._getLogged2(formData,'guest');
+  },
+
+  async _getLogged2(formData,condition) {
     if (this._validateFormData({ ...formData })) {
       console.log('formData');
       console.log(formData);
@@ -38,14 +59,14 @@ const Login = {
         if (document.querySelector('.error')) {
           this._removeErrorHandling();
         }
-        this._addSpinner();
+        this._addSpinner(condition);
 
         const response = await Auth.login({
           email: formData.email,
           password: formData.password,
         });
         Utils.setUserToken(Config.USER_TOKEN_KEY, response.data.loginResult.token);
-        window.alert('Signed user in detected');
+        //window.alert('Signed user in detected');
 
         Utils.setUserName('name', response.data.loginResult.name);
 
@@ -77,21 +98,28 @@ const Login = {
     element.remove();
   },
 
-  _addSpinner() {
+  _addSpinner(condition) {
     const div = document.createElement('div');
     div.classList.add('spinner-border');
 
-    const button = document.querySelector('button');
-    button.setAttribute('disabled', '');
-    button.appendChild(div);
+    const button = document.querySelectorAll('button');
+    for (let i = 0; i < button.length; i++) {
+    button[i].setAttribute('disabled', '');
+    }
+
+    if(condition!='guest'){
+    button[0].appendChild(div);}else{
+    button[1].appendChild(div);}
   },
 
   _removeSpinner() {
-    const button = document.querySelector('button');
-    button.removeAttribute('disabled');
+    const button = document.querySelectorAll('button');
+    for (let i = 0; i < button.length; i++) {
+    button[i].removeAttribute('disabled');}
 
-    const element = document.querySelector('.spinner-border');
-    element.remove();
+    const element = document.querySelectorAll('.spinner-border');
+    for (let i = 0; i < element.length; i++) {
+    element[i].remove();}
   },
 
   _getFormData() {
@@ -101,6 +129,13 @@ const Login = {
     return {
       email: email.value,
       password: password.value,
+    };
+  },
+
+  _getFormDataGuest() {
+    return {
+      email: 'shubuhshubuh3@gmail.com',
+      password: 'passwordtamu',
     };
   },
 

@@ -10,7 +10,7 @@ const Dashboard = {
 
     if (Utils.getUserName('name') != '') {
       const userLoggedMenu = document.querySelector('#userLoggedMenu');
-      userLoggedMenu.setAttribute('userName', `User Name: ${Utils.getUserName('name')}`);
+      userLoggedMenu.setAttribute('userName', `${Utils.getUserName('name')}`);
     }
 
     await this._initialData();

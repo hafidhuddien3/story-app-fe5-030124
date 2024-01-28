@@ -30,11 +30,11 @@ class NavLinkAuth extends LitWithoutShadowDom {
               id="imgUserLogged"
               style="width: 30px;height: 30px"
               class="img-fluid rounded-pill"
-              src="https://ui-avatars.com/api/?name=User%20Name&background=random"
+              src="https://ui-avatars.com/api/?name=${this.userName}&background=random"
               alt="User Name"
             />
           </div>
-          ${this.userName}
+          User Name: ${this.userName}
           <span id="nameUserLogged"></span>
         </a>
 

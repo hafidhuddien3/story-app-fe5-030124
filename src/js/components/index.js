@@ -10,3 +10,5 @@ import './NavLinkAuth';
 import './form/TextareaWithValidation';
 import './form/InputImageWithPreview';
 import './form/InputWithValidation';
+
+import './GuestAccount';
